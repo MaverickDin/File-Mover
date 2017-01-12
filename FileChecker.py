@@ -1,7 +1,9 @@
 import os, time
 import shutil
 
+curSessFilCount = 0
 
+#Creates the text file if it doesn't exist
 if "fileLocations.txt" not in os.listdir():
     crTxtF = open("fileLocations.txt", 'w')
     crTxtF.close()
@@ -60,6 +62,8 @@ while True:
     for i in targetDirectory:
         if i.endswith(targetFileType):
             shutil.move(initialDir + '\\' + i, targetDir + '\\' + i)
+            curSessFilCount += 1
+            print("Successfully moved file count this session: " + str(curSessFilCount))
 
 
 
